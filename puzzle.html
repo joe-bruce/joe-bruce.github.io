@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: monospace;
+      }
+
+      div {
+        display: flex;
+        flex-wrap: wrap;
+        width: 1600px;
+      }
+
+      span {
+        position: relative;
+        display: flex;
+        width: 20px;
+        height: 20px;
+        justify-content: center;
+        align-items: center;
+        outline: 1px solid grey;
+        font-weight: bold;
+        background: lightgrey;
+        user-select: none;
+      }
+
+      span.filled {
+        color: white;
+        background: black;
+      }
+
+      span.empty {
+        color: rgba(0, 0, 0, 0.3);
+        background: white;
+      }
+
+      span.error {
+        background: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form><input type="hidden" id="set" /></form>
+    <script src="puzzle.js"></script>
+  </body>
+</html>
