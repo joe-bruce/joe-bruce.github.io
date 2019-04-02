@@ -4054,10 +4054,10 @@ function toggleCell(event) {
 }
 
 document.body.addEventListener("click", toggleCell);
-document.body.addEventListener("touchstart", function(ev) {
-  ev.preventDefault();
-  toggleCell.apply(this, arguments);
-});
+// document.body.addEventListener("touchstart", function(ev) {
+//   ev.preventDefault();
+//   toggleCell.apply(this, arguments);
+// });
 
 function checkCell(node) {
   const i = Number(node.dataset.i);
