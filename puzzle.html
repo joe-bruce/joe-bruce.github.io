@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       body {
+        margin: 0;
         font-family: monospace;
       }
 
       div {
-        display: flex;
-        flex-wrap: wrap;
-        width: 1600px;
+        display: grid;
+        grid-template-columns: repeat(80, 2vh);
+        grid-template-rows: repeat(50, 2vh);
       }
 
       span {
-        position: relative;
         display: flex;
-        width: 20px;
-        height: 20px;
         justify-content: center;
         align-items: center;
         outline: 1px solid grey;
         font-weight: bold;
         background: lightgrey;
         user-select: none;
+        font-size: 1.5vh;
       }
 
       span.filled {
