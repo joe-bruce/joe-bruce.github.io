@@ -4053,11 +4053,15 @@ function toggleCell(event) {
     });
 }
 
-document.body.addEventListener("click", toggleCell);
-// document.body.addEventListener("touchstart", function(ev) {
-//   ev.preventDefault();
-//   toggleCell.apply(this, arguments);
-// });
+let ignore = false;
+document.body.addEventListener("click", function() {
+  if (!ignore) toggleCell.apply(this, arguments);
+  ignore = false;
+});
+document.body.addEventListener("touchmove", function(ev) {
+  ev.preventDefault();
+  ignore = true;
+});
 
 function checkCell(node) {
   const i = Number(node.dataset.i);
@@ -4088,8 +4092,8 @@ function checkCell(node) {
 
   const counts = indices.reduce(
     function(counts, i) {
-      counts[node.parentNode.children[i].className] =
-        (counts[node.parentNode.children[i].className] || 0) + 1;
+      const className = node.parentNode.children[i].className.split(" ")[0];
+      counts[className] = (counts[className] || 0) + 1;
       return counts;
     },
     { filled: 0, empty: 0 }
