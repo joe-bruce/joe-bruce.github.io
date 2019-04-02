@@ -4026,7 +4026,7 @@ grid.forEach(function(d, i) {
 });
 document.write("</div>");
 
-document.body.addEventListener("click", function(event) {
+function toggleCell(event) {
   const node = event.target;
   if (node.nodeName === "SPAN") {
     if (node.classList.contains("filled")) {
@@ -4051,6 +4051,12 @@ document.body.addEventListener("click", function(event) {
       if (good) node.parentNode.children[i].classList.remove("error");
       else node.parentNode.children[i].classList.add("error");
     });
+}
+
+document.body.addEventListener("click", toggleCell);
+document.body.addEventListener("touchstart", function(ev) {
+  ev.preventDefault();
+  toggleCell.apply(this, arguments);
 });
 
 function checkCell(node) {
