@@ -4053,14 +4053,9 @@ function toggleCell(event) {
     });
 }
 
-let ignore = false;
-document.body.addEventListener("click", function() {
-  if (!ignore) toggleCell.apply(this, arguments);
-  ignore = false;
-});
-document.body.addEventListener("touchmove", function(ev) {
+document.body.lastElementChild.addEventListener("click", toggleCell);
+document.body.lastElementChild.addEventListener("touchmove", function(ev) {
   ev.preventDefault();
-  ignore = true;
 });
 
 function checkCell(node) {
